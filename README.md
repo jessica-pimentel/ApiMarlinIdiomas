@@ -21,6 +21,10 @@ Os dados são manipulados utilizando o Entity Framework e a API possui os seguin
   - No momento de cadastrar um aluno, deve-se informar pelo menos uma turma que ele irá cursar; 
   - O mesmo aluno pode ser matriculado em várias turmas diferentes, porém a Matrícula não pode ser repetida na mesma turma; 
   - Uma turma não pode ter mais de 5 alunos; 
-  - Turma não pode ser excluída se possuir alunos; 
+  - Turma não pode ser excluída se possuir alunos;
+
+## 🖹 Documentação:
+  - Classe com documentação direto no código
+  - Documentação com swagger;
 
 
