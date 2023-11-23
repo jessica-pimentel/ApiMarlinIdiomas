@@ -1,0 +1,65 @@
+//Estrutura DDD e MVVM
+
+-TesteMarlinIdioma
+   - Api
+   - Application
+     - Services
+         - AlunoService.cs
+         - TurmaService.cs
+         - MatriculaService.cs
+    - Controllers
+         - AlunoController.cs
+         - TurmaController.cs
+         - MatriculaController.cs
+   - Domain
+     - Models
+         - Aluno.cs
+         - Turma.cs
+         - Matricula.cs
+     - IRepositories
+         - IAlunoRepository.cs
+         - ITurmaRepository.cs
+         - IMatriculaRepository.cs
+     - IServices
+         - IAlunoService.cs
+         - ITurmaService.cs
+         - IMatriculaService.cs
+   - Infrastructure
+     - Persistence
+         - AplicationDbContext.cs
+     - Repositories
+         - AlunoRepository.cs
+         - TurmaRepository.cs
+         - MatriculaRepository.cs
+     - InjecaoDependencia.cs
+   - Migrations
+
+// Estrutura Banco de Dados
+// Criação da tabela Alunos
+CREATE TABLE Alunos
+(
+    AlunoId INT PRIMARY KEY,
+    Nome NVARCHAR(255) NOT NULL,
+    CPF NVARCHAR(14) NOT NULL,
+    Email NVARCHAR(255) NOT NULL
+);
+
+// Criação da tabela Turmas
+CREATE TABLE Turmas
+(
+    TurmaId INT PRIMARY KEY,
+    Numero INT NOT NULL,
+    AnoLetivo INT NOT NULL
+);
+
+// Criação da tabela Matriculas
+CREATE TABLE Matriculas
+(
+    MatriculaId INT PRIMARY KEY,
+    AlunoId INT,
+    TurmaId INT,
+    FOREIGN KEY (AlunoId) REFERENCES Alunos(AlunoId),
+    FOREIGN KEY (TurmaId) REFERENCES Turmas(TurmaId)
+);
+
+Server=localhost\SQLEXPRESS;Database=master;Trusted_Connection=True;
